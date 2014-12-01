@@ -1,17 +1,19 @@
 # Web MIDI API Polyfill
 
-This JS library is a prototype polyfill and shim for the [Web MIDI API](https://dvcs.w3.org/hg/audio/raw-file/tip/midi/specification.html) (of which I am a co-author), using [Jazz-Soft.net's Jazz-Plugin](http://jazz-soft.net/) to enable MIDI support on Windows, OSX and Linux.  You need to have at least [version 1.2](http://jazz-soft.net/download/Jazz-Plugin/1.2) of the Jazz-Plugin in order for this polyfill to work properly.  This polyfill and the plugin should work on Chrome, Firefox, Safari, Opera and IE.
+by Chris Wilson
+
+This JS library is a prototype polyfill and shim for the [Web MIDI API](https://dvcs.w3.org/hg/audio/raw-file/tip/midi/specification.html), using [Jazz-Soft.net's Jazz-Plugin](http://jazz-soft.net/) to enable MIDI support on Windows, OSX and Linux.  You need to have at least [version 1.2](http://jazz-soft.net/download/Jazz-Plugin/1.2) of the Jazz-Plugin in order for this polyfill to work properly.  This polyfill and the plugin should work on Chrome, Firefox, Safari, Opera and IE.
 
 I'm currently using this polyfill to test usability of the API itself, but it's also useful to enable MIDI scenarios.
 
-This polyfill now supports multiple simultaneous inputs and outputs, and sending and receiving long messages (sysem exclusive).  It also properly dispatches events.  Timestamps on send and receive should be properly implemented now, although of course timing will not be very precise on either.
+This polyfill now supports multiple simultaneous inputs and outputs, and sending and receiving long messages (system exclusive).  It also properly dispatches events.  Timestamps on send and receive should be properly implemented now, although of course timing will not be very precise on either.
 
 Jazz doesn't expose the version number or manufacturer, so these are always null.
 
-##Usage
+##Meteor install and usage
 
-1. Copy the WebMIDIAPI.js file from /lib/ into your project.  
-2. Add "&lt;script src='lib/WebMIDIAPI.js'>&lt;/script>" to your code.
+Use "meteor add flowkey:web-midi-api-shim" to add this package to your meteor project via Atmosphere.
+This adds requestMIDIAccess() to your clientside navigator object.
 
 You can use the Web MIDI API as captured in the specification  - the polyfill will automatically check to see if the Web MIDI API is already implemented, and if not it will insert itself.
 
