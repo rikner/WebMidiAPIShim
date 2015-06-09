@@ -1,13 +1,18 @@
-# Web MIDI API Polyfill
+#Web MIDI API Polyfill
+Polyfill for Web MIDI API using the Jazz NPAPI MIDI.
 
+
+##About
 This JS library is a prototype polyfill and shim for the [Web MIDI API](http://webaudio.github.io/web-midi-api/) (of which Chris is a co-author), using [Jazz-Soft.net's Jazz-Plugin](http://jazz-soft.net/) to enable MIDI support on Windows, OSX and Linux.
+
+
 You need to have [version 1.4 or higher](http://jazz-soft.net/download/Jazz-Plugin) of the Jazz-Plugin in order for this polyfill to work properly. This polyfill and the plugin should work on Chrome, Firefox, Safari, Opera and IE.
 
 This polyfill was originally designed to test usability of the API itself, but it's also useful to enable MIDI scenarios in browsers that don't yet support Web MIDI.
 
 This polyfill now supports multiple simultaneous inputs and outputs, and sending and receiving long messages (sysem exclusive). It also properly dispatches events. Timestamps on send and receive should be properly implemented now, although of course timing will not be very precise on either.
 
-##Meteor install and usage
+###Meteor install and usage
 
 Use "meteor add flowkey:web-midi-api-shim" to add this package to your meteor project via Atmosphere.
 This adds requestMIDIAccess() to your clientside navigator object.
@@ -44,7 +49,7 @@ So, some sample usage:
 
 You can also take a look at [index.html](http://cwilso.github.com/WebMIDIAPIShim/tests/index.html) for a basic test, or [multi.html](http://cwilso.github.com/WebMIDIAPIShim/tests/multi.html) for a multiple-simultaneous-input test. The [routing.html](http://cwilso.github.com/WebMIDIAPIShim/tests/routing.html) example mimics a MIDI patchbay and allows you to route one or more inputs to one or more outputs. Better documentation later.  :)
 
-##Node.js install and test
+###Node.js install and test
 
   Make a new directory, copy the file test.js to this directory. Then move into the newly created directory via the command line and enter this command:
 
@@ -58,7 +63,7 @@ You can also take a look at [index.html](http://cwilso.github.com/WebMIDIAPIShim
 
     nodejs test.js
 
-##Node.js example (test.js)
+###Node.js example (test.js)
 
     var navigator = require('../web-midi-api');
 
